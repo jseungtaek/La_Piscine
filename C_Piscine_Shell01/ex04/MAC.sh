@@ -1,2 +1,2 @@
 #!/bin/sh
-ifconfig -a link | grep "ether" | awk '{print $2}'
+ifconfig -a link | grep "ether" | cut -d " " -f 2

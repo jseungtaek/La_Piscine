@@ -1,2 +1,2 @@
 #!/bin/sh
-find . \( -type f -o -type d \) | wc -l | sed 's/ //g'
+find . \( -type d -o -type f \) | wc -l | sed 's/ //g'
