@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichoi <ichoi@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: sejeon <sejeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 14:55:42 by ichoi             #+#    #+#             */
 /*   Updated: 2021/10/10 15:56:54 by ichoi            ###   ########.fr       */
