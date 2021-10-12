@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 21:08:51 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/12 10:50:24 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/12 11:06:58 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,35 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+void	ft_print_num(int num1, int num2)
+{
+	ft_putchar(num1 / 10 + '0');
+	ft_putchar(num1 % 10 + '0');
+	ft_putchar(' ');
+	ft_putchar(num2 / 10 + '0');
+	ft_putchar(num2 % 10 + '0');
+	if (!(num1 == 98 && num2 == 99))
+	{
+		ft_putchar(',');
+		ft_putchar(' ');
+	}
+}
+
 void	ft_print_comb2(void)
 {
-	int num1_first;
-	int num1_second;
-	int num2_first;
-	int num2_second;
+	int	num1;
+	int	num2;
 
-	num1_first = 0;
-	num1_second = 0;
-	num2_first = 0;
-	num2_second = 1;
-	while (
+	num1 = 0;
+	num2 = 1;
+	while (num1 < 99)
+	{
+		while (num2 < 100)
+		{
+			ft_print_num(num1, num2);
+			num2++;
+		}
+		num1++;
+		num2 = num1 + 1;
+	}
+}	
