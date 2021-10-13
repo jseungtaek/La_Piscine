@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 11:09:15 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/12 11:37:40 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/13 19:13:22 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,18 @@ void	recursive_f(int nb)
 
 void	ft_putnbr(int nb)
 {
+	int a;
+
 	if (nb < 0)
 	{
 		ft_putchar('-');
+		if (nb == -2147483648)
+		{
+			a = 214748364;
+			recursive_f(a);
+			ft_putchar(8 + '0');
+		}
 		nb = nb * -1;
 	}
 	recursive_f(nb);
-}			
+}
