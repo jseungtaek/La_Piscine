@@ -3,15 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sejeon <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 19:59:55 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/13 20:10:32 by sejeon           ###   ########.fr       */
+/*   Created: 2021/10/14 23:25:04 by sejeon            #+#    #+#             */
+/*   Updated: 2021/10/14 23:25:14 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
-
-void	ft_print_combn(int n)
-{
-
