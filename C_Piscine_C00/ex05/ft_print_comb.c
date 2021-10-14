@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 16:19:29 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/12 10:49:28 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/14 23:20:49 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_print_digit(int first, int second, int third)
 	ft_putchar(first + '0');
 	ft_putchar(second + '0');
 	ft_putchar(third + '0');
-	if (!(first == 7 && second ==8 && third ==9))
+	if (!(first == 7 && second == 8 && third == 9))
 	{
 		ft_putchar(',');
 		ft_putchar(' ');

@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 11:09:15 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/13 19:13:22 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/14 23:21:15 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	recursive_f(int nb)
 
 void	ft_putnbr(int nb)
 {
-	int a;
+	int	a;
 
 	if (nb < 0)
 	{
