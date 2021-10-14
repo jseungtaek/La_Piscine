@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:16:08 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/14 17:29:11 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:36:38 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	ft_putstr_non_printable(char *str)
 	i = -1;
 	while (str[++i] != '\0')
 	{
-		if (str[i] <= 31 || str[i] >= 127)
+		if ((str[i] <= 31 && str[i] >= 0) || str[i] == 127)
 		{
 			ft_putchar('\\');
 			ft_putchar(g_base[str[i] / 16]);
 			ft_putchar(g_base[str[i] % 16]);
 		}
-		else
+		else if (str[i] >= 32 && str[i] <= 126)
 			ft_putchar(str[i]);
 	}
 }
