@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 13:22:35 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/14 15:34:30 by sejeon           ###   ########.fr       */
+/*   Created: 2021/10/14 14:27:07 by sejeon            #+#    #+#             */
+/*   Updated: 2021/10/14 14:59:38 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-int	ft_str_is_printable(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	i;
+	unsigned int	src_legnth;
+	int				i;
 
+	src_length = 0;
 	i = -1;
-	while (str[++i] != '\0')
+	while (src[++i] != '\0')
+		src_length++;
+	i = 0;
+	while (i < src_length && i < size - 1)
 	{
-		if (str[i] > 31 && str[i] < 127)
-			continue ;
-		else
-			return (0);
+		dest[i] = src[i];
+		i++;
 	}
-	return (1);
+	if (size > 0)
+		dest[i] = '\0';
+	return (src_length);
 }
