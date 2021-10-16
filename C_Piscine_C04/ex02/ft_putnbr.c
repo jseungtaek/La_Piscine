@@ -6,11 +6,12 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 01:00:17 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/15 01:10:48 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/16 20:38:57 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
+#include<stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -40,5 +41,7 @@ void	ft_putnbr(int nb)
 		}
 		nb *= 1;
 	}
+	else if (nb == 0)
+		ft_putchar('0');
 	recursive_func(nb);
 }
