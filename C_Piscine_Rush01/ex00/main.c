@@ -4,79 +4,71 @@
 
 #define BOUNDARY_COUNT 4
 
-int is_numbers(char c);
-int get_length_argv(char* str);
-int put_boundary_value(int* boundary, char* args, int grid_length);
-int make_grid_malloc(int*** g_blank, int grid_length);
+int	is_numbers(char c);
+int	get_length_argv(char *str);
+int	put_boundary_value(int *boundary, char *args, int grid_length);
+int	make_grid_malloc(int ***g_blank, int grid_length);
 
-int resolve(int **grid, int *boundary, int slot_of_grid, int grid_length);
-int validate_overlap(int **grid, int slot_of_grid, int height, int grid_length);
-int validate_all_boundaries(int** grid, int slot_of_grid, int* boundary, int grid_length);
-int validate_col_up(int** grid, int slot_of_grid, int* boundary, int grid_length);
-int validate_col_down(int** grid, int slot_of_grid, int* boundary, int grid_length);
-int validate_row_left(int** grid, int slot_of_grid, int* boundary, int grid_length);
-int validate_row_right(int** grid, int slot_of_grid, int* boundary, int grid_length);
+int	resolve(int **grid, int *boundary, int slot_of_grid, int grid_length);
+int	validate_overlap(int **grid, int slot_of_grid, int height, int grid_length);
+int	validate_all_boundaries(int **grid, int slot_of_grid, int *boundary, int grid_length);
+int	validate_col_up(int **grid, int slot_of_grid, int *boundary, int grid_length);
+int	validate_col_down(int **grid, int slot_of_grid, int *boundary, int grid_length);
+int	validate_row_left(int **grid, int slot_of_grid, int *boundary, int grid_length);
+int	validate_row_right(int **grid, int slot_of_grid, int *boundary, int grid_length);
 
-int main(int argc, char **argv)
+void	ft_putchar(char c)
 {
-	int arg_len;
-	int grid_length;
-	char *p;
-
-	//Exception1 : argc  is not 2
-	if (argc != 2)
-	{
-		write(1, "Error\n", 6);
-	}
-
-	//Exception2 : arg_count in agv[1] is not 16
-	arg_len = get_length_argv(argv[1]);
-	grid_length = arg_len / BOUNDARY_COUNT;
-	if (arg_len != grid_length * BOUNDARY_COUNT || grid_length != 4)	
-	{
-		write(1, "Error\n", 6);
-	}
-
-	//Make boundary and put values on them
-	//make grid
-	int boundary[4 * BOUNDARY_COUNT];
-	int** grid;
-
- 	put_boundary_value(boundary, argv[1], 4);
-	make_grid_malloc(&grid, 4);
-
-	//algorithm
-	resolve(grid, boundary, 0, grid_length);
-
-	//just Test of boundary and grid
-	//Of course You have to remove it before submit
-	for (int i = 0; i < grid_length * grid_length; i++)
-	{
-		printf("%d", *(boundary + i));
-	}
-	printf("\n");
-
-
-	for (int i = 0; i < grid_length; i++)
-	{
-		for (int j = 0; j < grid_length; j++)
-		{
-			printf("%d ", grid[i][j]);
-		}
-		printf("\n");	
-	}
-
+	write(1, &c, 1);
 }
 
-int is_numbers(char c)
+int	main(int argc, char **argv)
+{
+	char	*p;
+	int		arg_len;
+	int		grid_length;
+	int		boundary[4 * BOUNDARY_COUNT];
+	int		**grid;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (argc != 2)
+		write(1, "Error\n", 6);
+	arg_len = get_length_argv(argv[1]);
+	grid_length = arg_len / BOUNDARY_COUNT;
+	if (arg_len != grid_length * BOUNDARY_COUNT || grid_length != 4)
+		write(1, "Error\n", 6);
+	put_boundary_value(boundary, argv[1], 4);
+	make_grid_malloc(&grid, 4);
+	resolve(grid, boundary, 0, grid_length);
+	while (i < grid_length * grid_length)
+		ft_putchar(boundary[i] + '0');
+	ft_putchar('\n');
+	i = 0;
+	while (i < grid_length)
+	{
+		while (j < grid_length)
+		{
+			ft_putchar(grid[i][j] + '0');
+			j++;
+		}
+		i++;
+		j = 0;
+		ft_putchar('\n');
+	}
+}
+
+int	is_numbers(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int get_length_argv(char* str)
+int	get_length_argv(char *str)
 {
-	int length;
-	
+	int	length;
+
 	length = 0;
 	while (*str != '\0')
 	{
@@ -86,11 +78,10 @@ int get_length_argv(char* str)
 		}
 		str++;
 	}
-	
-	return length;
+	return (length);
 }
 
-int put_boundary_value(int* boundary, char* args, int grid_length)
+int	put_boundary_value(int *boundary, char *args, int grid_length)
 {
 	int	*p;
 	int	i;
@@ -103,14 +94,14 @@ int put_boundary_value(int* boundary, char* args, int grid_length)
 		{				
 			*p = *args - '0';
 			i++;
-			p++; 
+			p++;
 		}
 		args++;
 	}
-	return 0;
+	return (0);
 }
 
-int make_grid_malloc(int*** gird, int grid_length)
+int	make_grid_malloc(int ***gird, int grid_length)
 {
 	int	**p;
 	int	i;
@@ -120,7 +111,7 @@ int make_grid_malloc(int*** gird, int grid_length)
 	p = *gird;
 	if (p == 0)
 	{
-		return 1;
+		return (1);
 	}
 	i = 0;
 	while (i < grid_length)
@@ -128,7 +119,7 @@ int make_grid_malloc(int*** gird, int grid_length)
 		p[i] = (int *)malloc(grid_length * sizeof(int));
 		if (p[i] == 0)
 		{
-			return 1;
+			return (1);
 		}
 		j = 0;
 		while (j < grid_length)
@@ -136,21 +127,17 @@ int make_grid_malloc(int*** gird, int grid_length)
 			p[i][j] = 0;
 			j++;
 		}
-		i++;	
+		i++;
 	}
-	
-	return 0;
+	return (0);
 }
 
-int resolve(int **grid, int *boundary, int slot_of_grid, int grid_length)
+int	resolve(int **grid, int *boundary, int slot_of_grid, int grid_length)
 {
-	int	height[4] = { 1, 2, 3, 4 };
+	int	height[4] = {1, 2, 3, 4};
 	int	rows;
 	int	cols;
-	int	i;
 
-	//when start, slot_grid == 0, grid_length == 4
-	//and keep recurising until gird end or out when it is not vaild.
 	rows = slot_of_grid / grid_length;
 	cols = slot_of_grid % grid_length;
 	if (slot_of_grid == 16)
@@ -176,11 +163,11 @@ int resolve(int **grid, int *boundary, int slot_of_grid, int grid_length)
 	return (0);
 }
 
-int validate_overlap(int **grid, int slot_of_grid, int height, int grid_length)
+int	validate_overlap(int **grid, int slot_of_grid, int height, int grid_length)
 {
 	int	i;
 	int	rows;
-	int cols;
+	int	cols;
 
 	rows = slot_of_grid / grid_length;
 	cols = slot_of_grid % grid_length;
@@ -205,7 +192,7 @@ int validate_overlap(int **grid, int slot_of_grid, int height, int grid_length)
 	return (0);
 }
 
-int validate_all_boundaries(int** grid, int slot_of_grid, int* boundary, int grid_length)
+int	validate_all_boundaries(int **grid, int slot_of_grid, int *boundary, int grid_length)
 {
 	if (validate_col_up(grid, slot_of_grid, boundary, grid_length) == 1)
 	{
@@ -223,11 +210,10 @@ int validate_all_boundaries(int** grid, int slot_of_grid, int* boundary, int gri
 	{
 		return (1);
 	}
-
 	return (0);
 }
 
-int validate_col_up(int** grid, int slot_of_grid, int* boundary, int grid_length)
+int	validate_col_up(int **grid, int slot_of_grid, int *boundary, int grid_length)
 {
 	int	is_full_rows;
 	int	rows;
@@ -243,7 +229,6 @@ int validate_col_up(int** grid, int slot_of_grid, int* boundary, int grid_length
 	max = 0;
 	tower_count = 0;
 	boundary_offset = 0;
-
 	is_full_rows = rows == 3;
 	if (is_full_rows)
 	{
@@ -264,7 +249,7 @@ int validate_col_up(int** grid, int slot_of_grid, int* boundary, int grid_length
 	return (0);
 }
 
-int validate_col_down(int** grid, int slot_of_grid, int* boundary, int grid_length)
+int	validate_col_down(int **grid, int slot_of_grid, int *boundary, int grid_length)
 {
 	int	is_full_rows;
 	int	rows;
@@ -280,7 +265,6 @@ int validate_col_down(int** grid, int slot_of_grid, int* boundary, int grid_leng
 	max = 0;
 	tower_count = 0;
 	boundary_offset = 4;
-
 	is_full_rows = rows == 3;
 	if (is_full_rows)
 	{
@@ -301,7 +285,7 @@ int validate_col_down(int** grid, int slot_of_grid, int* boundary, int grid_leng
 	return (0);
 }
 
-int validate_row_left(int** grid, int slot_of_grid, int* boundary, int grid_length)
+int	validate_row_left(int **grid, int slot_of_grid, int *boundary, int grid_length)
 {
 	int	is_full_columns;
 	int	rows;
@@ -317,7 +301,6 @@ int validate_row_left(int** grid, int slot_of_grid, int* boundary, int grid_leng
 	max = 0;
 	tower_count = 0;
 	boundary_offset = 8;
-
 	is_full_columns = cols == 3;
 	if (is_full_columns)
 	{
@@ -338,7 +321,7 @@ int validate_row_left(int** grid, int slot_of_grid, int* boundary, int grid_leng
 	return (0);
 }
 
-int validate_row_right(int** grid, int slot_of_grid, int* boundary, int grid_length)
+int	validate_row_right(int **grid, int slot_of_grid, int *boundary, int grid_length)
 {
 	int	is_full_columns;
 	int	rows;
@@ -354,7 +337,6 @@ int validate_row_right(int** grid, int slot_of_grid, int* boundary, int grid_len
 	max = 0;
 	tower_count = 0;
 	boundary_offset = 12;
-
 	is_full_columns = cols == 3;
 	if (is_full_columns)
 	{
