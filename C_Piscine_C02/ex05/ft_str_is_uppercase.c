@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 13:13:32 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/14 13:17:14 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/18 00:19:25 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ int	ft_str_is_uppercase(char *str)
 	i = -1;
 	while (str[++i] != '\0')
 	{
-		if (str[i] == ' ')
-			continue ;
-		else if (str[i] >= 'A' && str[i] <= 'Z')
+		if (str[i] >= 'A' && str[i] <= 'Z')
 			continue ;
 		else
 			return (0);
