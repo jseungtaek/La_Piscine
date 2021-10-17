@@ -1,47 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 01:00:17 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/16 20:38:57 by sejeon           ###   ########.fr       */
+/*   Created: 2021/10/16 20:42:11 by sejeon            #+#    #+#             */
+/*   Updated: 2021/10/16 21:02:02 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
-#include<stdio.h>
 
-void	ft_putchar(char c)
+int	ft_atoi(char *str)
 {
-	write(1, &c, 1);
-}
-
-void	recursive_func(int nb)
-{
-	if (nb <= 0)
-		return ;
-	recursive_func(nb / 10);
-	ft_putchar(nb % 10 + '0');
-}
-
-void	ft_putnbr(int nb)
-{
-	int	num;
-
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		if (nb == -2147483648)
-		{
-			num = 214748364;
-			recursive_func(num);
-			ft_putchar(8 + '0');
-		}
-		nb *= 1;
-	}
-	else if (nb == 0)
-		ft_putchar('0');
-	recursive_func(nb);
-}

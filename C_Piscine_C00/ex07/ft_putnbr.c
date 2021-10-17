@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 11:09:15 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/14 23:21:15 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/16 15:47:36 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,13 @@ void	ft_putnbr(int nb)
 		}
 		nb = nb * -1;
 	}
+	else if (nb == 0)
+		ft_putchar('0');
 	recursive_f(nb);
+}
+
+int	main(void)
+{
+	ft_putnbr(0);
+	return (0);
 }
