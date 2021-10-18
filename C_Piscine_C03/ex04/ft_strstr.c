@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 18:40:02 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/14 23:14:39 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/18 14:47:07 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,23 +67,25 @@ int	ft_strverify(char *s1, char *s2)
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*p;
 
+	*p = "";
 	i = ft_strverify(str, to_find);
 	j = 0;
 	if (i >= 0)
 	{
 		if (!(ft_strlen(to_find)))
-			return (NULL);
+			return (p);
 		else
 		{
 			while (str[i])
-				str[j++] = str[i++];
-			str[j] = '\0';
-			return (str);
+				p[j++] = str[i++];
+			p[j] = '\0';
+			return (p);
 		}
 	}
 	else
-		return (NULL);
+		return (p);
 }

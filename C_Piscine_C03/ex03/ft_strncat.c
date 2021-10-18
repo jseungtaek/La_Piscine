@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 18:30:27 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/14 18:39:08 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/18 14:44:06 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int	ft_strlen(char *str)
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	int	dest_len;
-	int	i;
+	unsigned int	i;
 
 	dest_len = ft_strlen(dest);
 	i = 0;
-	while (nb--)
+	while (i < nb && src[i] != '\0')
 	{
-		dest[dest_len++] = src [i++];
-		if (src[i] == '\0')
-			dest[dest_len] = '\0';
+		dest[dest_len] = src[i];
+		dest_len++;
+		i++;
 	}
 	dest[dest_len] = '\0';
 	return (dest);
