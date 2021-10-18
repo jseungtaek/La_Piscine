@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 18:40:02 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/18 14:47:07 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/18 16:44:29 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	ft_whensame(char *s1, char *s2, int i, int j)
 {
 	int	flag;
 
-	flag = 0;
+	flag = -1;
 	while (s2[j])
 	{
 		if (s1[i] != s2[j])
 		{
-			flag = 0;
+			flag = -1;
 			break ;
 		}
 		else if (s1[i] == s2[j])
@@ -42,50 +42,32 @@ int	ft_whensame(char *s1, char *s2, int i, int j)
 	if (flag == 1)
 		return (i - j);
 	else
-		return (0);
-}
-
-int	ft_strverify(char *s1, char *s2)
-{
-	int	i;
-	int	j;
-	int	flag;
-
-	i = 0;
-	j = 0;
-	flag = 0;
-	while (s1[i])
-	{
-		if (s1[i] == s2[j])
-			flag = ft_whensame(s1, s2, i, j);
-		if (flag == 0)
-			j = 0;
-		i++;
-	}
-	return (flag);
+		return (-1);
 }
 
 char	*ft_strstr(char *str, char *to_find)
 {
 	int		i;
 	int		j;
-	char	*p;
+	int		start;
 
-	*p = "";
-	i = ft_strverify(str, to_find);
+	i = 0;
 	j = 0;
-	if (i >= 0)
+	while (str[i])
 	{
-		if (!(ft_strlen(to_find)))
-			return (p);
-		else
-		{
-			while (str[i])
-				p[j++] = str[i++];
-			p[j] = '\0';
-			return (p);
-		}
+		if (str[i] == to_find[j])
+			start = ft_whensame(str, to_find, i, j);
+		i++;
 	}
+	if (start >= 0)
+	{
+		while (str[i])
+			str[j++] = str[i++];
+		str[j] = '\0';
+		return (str);
+	}
+	else if (ft_strlen(to_find) == 0)
+		return (str);
 	else
-		return (p);
+		return (NULL);
 }
