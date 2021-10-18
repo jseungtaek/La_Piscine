@@ -6,12 +6,11 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 13:37:14 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/18 00:41:01 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/18 10:52:33 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
-#include<stdio.h>
 
 int	ft_islower(char *str, int i)
 {
@@ -52,17 +51,13 @@ char	*ft_strcapitalize(char *str)
 			str[i] -= 32;
 		else if (!ft_isdigit(str, i - 1))
 		{
-			if (ft_isalpha(str, i - 1))
-			{
-				if (ft_isupper(str, i))
-					str[i] += 32;
-			}
+			if (ft_isalpha(str, i - 1) && ft_isupper(str, i))
+				str[i] += 32;
 			else if (!ft_isalpha(str, i - 1) && ft_islower(str, i))
 				str[i] -= 32;
 		}
+		else if (ft_isdigit(str, i - 1) && ft_isupper(str, i))
+			str[i] += 32;
 	}
-}
-
-int	main(void)
-{
-	char 
+	return (str);
+}	
