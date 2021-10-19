@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:47:40 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/19 17:35:18 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/19 20:55:35 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_base_check(char *base)
 
 	i = 0;
 	if (ft_strlen(base) <= 1)
-		 return (0);
+		return (0);
 	while (base[i])
 	{
 		if (base[i] == '+' || base[i] == '-' || base[i] == ' '
