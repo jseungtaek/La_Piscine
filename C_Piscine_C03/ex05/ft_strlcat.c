@@ -6,15 +6,15 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 23:31:50 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/18 16:46:17 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/19 12:52:06 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-int	ft_strlen(char *str)
+unsigned int	ft_strlen(char *str)
 {
-	int	str_len;
+	unsigned int	str_len;
 
 	str_len = 0;
 	while (str[str_len])
@@ -26,17 +26,23 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	dest_len;
 	unsigned int	src_len;
-	unsigned int	i;
 
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);
-	i = 0;
-	while (src[i] != '\0' && dest_len + i < size - 1)
+	if (dest_len > size)
+		return (src_len + size);
+	while (*dest)
 	{
-		dest[dest_len + i] = src[i];
-		i++;
+		dest++;
+		size--;
 	}
-	if (dest_len < size)
-		dest[i + dest_len] = '\0';
+	while (size > 1 && *src)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		size--;
+	}
+	*dest = '\0';
 	return (dest_len + src_len);
 }
