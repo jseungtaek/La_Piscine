@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:03:15 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/19 19:50:31 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/19 20:15:26 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ int	ft_iterative_power(int nb, int power)
 {
 	int	result;
 
-	result = 1;
-	if (nb < 0)
+	result = nb;
+	if (nb < 0 || power < 0)
 		return (0);
 	if (power == 0)
 		return (1);
-	while (power > 0)
+	while (power > 1)
 	{
-		result = result * nb;
+		nb *= result;
 		power--;
 	}
-	return (result);
+	return (nb);
 }

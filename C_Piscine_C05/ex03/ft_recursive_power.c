@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:08:29 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/19 19:48:41 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/19 20:17:20 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int	ft_recursive_power(int nb, int power)
 		return (1);
 	else if (nb < 0 || power < 0)
 		return (0);
-	return (nb * ft_recursive(nb, power - 1));
+	return (nb * ft_recursive_power(nb, power - 1));
 }
