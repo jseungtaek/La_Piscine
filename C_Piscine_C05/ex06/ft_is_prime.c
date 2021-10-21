@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 19:23:43 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/19 20:25:21 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/22 01:43:10 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int	ft_is_prime(int nb)
 	i = 2;
 	if (nb <= 1)
 		return (0);
-	while (i < nb)
+	while (i * i <= nb)
 	{
 		if (nb % i == 0)
 			return (0);
+		if (i > 46340)
+			break ;
 		i++;
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:57:31 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/19 19:57:21 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/22 01:04:50 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ int	ft_sqrt(int nb)
 	if (nb <= 0)
 		return (0);
 	while (i * i < nb)
+	{
 		i++;
+		if (i > 46340)
+			break ;
+	}
 	if (i * i == nb)
 		return (i);
 	else
