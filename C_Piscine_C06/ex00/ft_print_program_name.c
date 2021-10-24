@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 23:34:29 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/20 00:15:49 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/24 23:01:26 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 void	ft_putstr(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	while (*str)
 	{
-		write(1, &str[i], 1);
-		i++;
+		write(1, str, 1);
+		str++;
 	}
 }
 
