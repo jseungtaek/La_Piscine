@@ -6,12 +6,11 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 01:00:17 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/19 13:50:45 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/26 09:36:28 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
-#include<stdio.h>
 
 void	ft_putchar(char c)
 {
