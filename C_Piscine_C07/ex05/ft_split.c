@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 10:45:32 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/27 16:03:02 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/27 16:09:44 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ char	**ft_split(char *str, char *charset)
 		ft_strcpy(arr[i], str, st, len);
 		st = len;
 		i++;
-	}	arr[i] = '\0';
+	}	
+	arr[i] = '\0';
 	return (arr);
 }
 
