@@ -6,11 +6,12 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 10:45:32 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/27 19:18:24 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/27 20:32:31 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
+#include<stdio.h>
 
 char	**ft_split(char *str, char *charset);
 int		ft_c_length(char *str, char *charset, int i);
@@ -96,4 +97,18 @@ int	ft_t_length(char *str, char *charset)
 		i++;
 	}
 	return (k);
+}
+
+int	main(void)
+{
+	char	strs[] = "str,str,str";
+	char	sep[] = ",";
+	char	**arr;
+
+	arr = ft_split(strs, sep);
+	for (int i =0 ; i<2; i++)
+	{
+		printf("%s\n", arr[i]);
+	}
+	return (0);
 }

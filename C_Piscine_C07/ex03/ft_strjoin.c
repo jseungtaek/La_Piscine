@@ -6,11 +6,12 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 09:36:02 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/27 19:18:48 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/27 20:26:33 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
+#include<stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -30,7 +31,7 @@ int	ft_size_len(int size, char **strs, char *sep)
 	i = 0;
 	len = 0;
 	while (i < size)
-		len += ft_strlen(strs[i]);
+		len += ft_strlen(strs[i++]);
 	len += ((size - 1) * ft_strlen(sep) + 1);
 	return (len);
 }
@@ -40,7 +41,6 @@ char	*ft_strcat(char *s1, char *s2)
 	int	i;
 	int	j;
 
-	i = 0;
 	j = 0;
 	i = ft_strlen(s1);
 	while (s2[j])
@@ -77,4 +77,24 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		ft_strcat(arr, sep);
 	}
 	return (arr);
+}
+
+int	main(void)
+{
+	char	**strs = malloc(sizeof(char *) * 10);
+	char	*sep = malloc(sizeof(char) * 3);
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (i < 4)
+	{
+		strs[i] = malloc(sizeof(char) * 4);
+		strs[i] = "str";
+		i++;
+	}
+	sep = ",";
+	printf("%s", ft_strjoin(4, strs, sep));
+	return (0);
 }
