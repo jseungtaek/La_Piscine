@@ -6,7 +6,7 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 10:45:32 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/27 16:09:44 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/27 19:18:24 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	**ft_split(char *str, char *charset);
 int		ft_c_length(char *str, char *charset, int i);
-void	*ft_strcpy(char *s1, char *s2, int st, int fi);
+void	ft_strcpy(char *s1, char *s2, int st, int fi);
 int		ft_t_length(char *str, char *charset);
 
 char	**ft_split(char *str, char *charset)
@@ -32,15 +32,14 @@ char	**ft_split(char *str, char *charset)
 	{
 		arr[i] = malloc(sizeof(char) * ft_c_length(str, charset, len) + 1);
 		len = ft_c_length(str, charset, len);
-		ft_strcpy(arr[i], str, st, len);
+		ft_strcpy(arr[i++], str, st, len);
 		st = len;
-		i++;
 	}	
-	arr[i] = '\0';
+	arr[i] = 0;
 	return (arr);
 }
 
-void	*ft_strcpy(char *s1, char *s2, int st, int fi)
+void	ft_strcpy(char *s1, char *s2, int st, int fi)
 {
 	int	i;
 
