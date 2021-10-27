@@ -6,11 +6,10 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:21:43 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/21 15:26:20 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/27 16:05:04 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
 #include<stdlib.h>
 
 char	*ft_strdup(char *src)
