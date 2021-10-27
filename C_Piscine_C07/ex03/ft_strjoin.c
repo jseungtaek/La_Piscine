@@ -6,11 +6,11 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 09:36:02 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/26 21:04:03 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/27 10:39:56 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include<stdlib.h>
 
 int	ft_strlen(char *str)
 {
@@ -77,4 +77,4 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		ft_strcat(arr, sep);
 	}
 	return (arr);
-}		
+}
