@@ -6,33 +6,41 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 10:45:32 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/27 14:17:52 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/27 15:59:50 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
+
+char    **ft_split(char *str, char *charset);
+int     ft_c_length(char *str, char *charset, int i);
+void    *ft_strcpy(char *s1, char *s2, int st, int fi);
+int     ft_t_length(char *str, char *charset);
 
 char	**ft_split(char *str, char *charset)
 {
 	char	**arr;
 	int		len;
 	int		i;
+	int		st;
 
 	len = 0;
 	i = 0;
+	st = 0;
 	arr = malloc(sizeof(char *) * ft_t_length(str, charset) + 1);
 	while (str[i])
 	{
 		arr[i] = malloc(sizeof(char) * ft_c_length(str, charset, len) + 1);
-		ft_strcpy(arr[i], str, len, len += ft_c_length(str, charset, len));
+		len = ft_c_length(str, charset, len);
+		ft_strcpy(arr[i], str, st, len);
+		st = len;
 		i++;
 	}
 	arr[i] = '\0';
 	return (arr);
 }
-	
 
-char	*ft_strcpy(char *s1, char *s2, int st, int fi)
+void	*ft_strcpy(char *s1, char *s2, int st, int fi)
 {
 	int	i;
 
@@ -44,7 +52,6 @@ char	*ft_strcpy(char *s1, char *s2, int st, int fi)
 		st++;
 	}
 	s1[i] = '\0';
-	return (s1);
 }
 
 int	ft_c_length(char *str, char *charset, int i)
@@ -64,7 +71,7 @@ int	ft_c_length(char *str, char *charset, int i)
 			break ;
 		i++;
 	}
-	return (i);
+	return (++i);
 }
 
 int	ft_t_length(char *str, char *charset)
