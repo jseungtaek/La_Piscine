@@ -6,12 +6,12 @@
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 10:45:32 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/27 20:32:31 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/28 11:23:57 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
-#include<stdio.h>
+//#include<stdio.h>
 
 char	**ft_split(char *str, char *charset);
 int		ft_c_length(char *str, char *charset, int i);
@@ -29,7 +29,7 @@ char	**ft_split(char *str, char *charset)
 	i = 0;
 	st = 0;
 	arr = malloc(sizeof(char *) * ft_t_length(str, charset) + 1);
-	while (str[i])
+	while (i <= ft_t_length(str, charset))
 	{
 		arr[i] = malloc(sizeof(char) * ft_c_length(str, charset, len) + 1);
 		len = ft_c_length(str, charset, len);
@@ -99,16 +99,15 @@ int	ft_t_length(char *str, char *charset)
 	return (k);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	char	strs[] = "str,str,str";
-	char	sep[] = ",";
+	char	strs[] = "qwertyuiopasdfghjklzxcvbnm";
+	char	sep[] = "qwertyuiopasdfghjklzxcvbnm";
 	char	**arr;
 
 	arr = ft_split(strs, sep);
-	for (int i =0 ; i<2; i++)
-	{
-		printf("%s\n", arr[i]);
-	}
+	for (int i =0 ; i<27; i++)
+		if (arr[i] != 0)
+			printf("%s\n", arr[i]);
 	return (0);
-}
+}*/

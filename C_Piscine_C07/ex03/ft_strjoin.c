@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strjoin.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejeon <sejeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 09:36:02 by sejeon            #+#    #+#             */
-/*   Updated: 2021/10/27 20:26:33 by sejeon           ###   ########.fr       */
+/*   Updated: 2021/10/28 11:20:42 by sejeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
-#include<stdio.h>
+//#include<stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -79,7 +79,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (arr);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	**strs = malloc(sizeof(char *) * 10);
 	char	*sep = malloc(sizeof(char) * 3);
@@ -97,4 +97,4 @@ int	main(void)
 	sep = ",";
 	printf("%s", ft_strjoin(4, strs, sep));
 	return (0);
-}
+}*/
